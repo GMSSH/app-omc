@@ -1,0 +1,53 @@
+@mixin flex($j, $a: center, $d: row, $fw: nowrap) {
+  display: flex;
+  justify-content: $j;
+  align-items: $a;
+  flex-direction: $d;
+  flex-wrap: $fw;
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 小于12像素的字 -> 参数为想要设置的字体大小
+@mixin mini_font($size) {
+  font-size: 12px;
+  //-webkit-transform-origin-x: 0;
+  //-webkit-transform: scale($size/12);
+}
+
+@mixin grid($col, $row) {
+  display: grid;
+  grid-template-columns: repeat($col, 1fr);
+  grid-template-rows: repeat($row, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.store-dot-str {
+  margin: 0;
+  padding: 0;
+  height: 17px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #3c3c3c;
+  line-height: 17px;
+  margin-top: 10px;
+  position: relative;
+  text-indent: 15px;
+  white-space: nowrap;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: #777777;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
